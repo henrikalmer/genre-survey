@@ -1,22 +1,22 @@
 <div class="text-center">
-	<audio class="player" controls autoplay>
-		<source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
-		<a href="http://www.w3schools.com/html/horse.mp3">horse</a>
-	</audio>
-	<br><br>
-	<a href id="repeat" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-repeat"></span></a>
+    <audio class="player" controls autoplay>
+        <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
+        <a href="http://www.w3schools.com/html/horse.mp3">horse</a>
+    </audio>
+    <br><br>
+    <a href id="repeat" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-repeat"></span></a>
 </div>
 
 <form class="play-form" role="form">
-	<div class="form-group" ng-repeat="g in genres">
-		<label for="{{ g.key }}">{{ g.name }}: {{ g.value }} %</label>
-		<input type="range" name="{{ g.key }}" min="0" max="100" step="1" ng-model="g.value">
-	</div>
+    <div class="form-group" ng-repeat="g in genres">
+        <label for="{{ g.key }}">{{ g.name }}: {{ g.value }} %</label>
+        <input type="range" name="{{ g.key }}" min="0" max="100" step="1" ng-model="g.value">
+    </div>
 
-	<div class="form-group">
-		<button type="submit" class="btn btn-lg btn-primary pull-right">
-			Nästa
-			<span class="glyphicon glyphicon-chevron-right"></span>
-		</button>
-	</div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary pull-right">
+            Nästa
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+    </div>
 </form>
