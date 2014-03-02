@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="playerApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,9 @@
 
     <!-- Angular -->
     <script src="static/lib/angular/angular.min.js"></script>
+    <script src="static/lib/angular/angular-route.min.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/controllers.js"></script>
 </head>
 <body>
   {% raw %}
@@ -27,11 +30,7 @@
     <div class="site-wrapper-inner">
       <div class="cover-container">
         <div class="inner cover">
-          <h1 class="cover-heading">Genre Survey</h1>
-          <p class="lead">1 + 2 = {{ 1 + 2 }}</p>
-          <p class="lead">
-            <a href="#" class="btn btn-lg btn-default">Start</a>
-          </p>
+          <div ng-view></div>
         </div>
 
         <div class="mastfoot">
