@@ -1,2 +1,22 @@
-<h1 class="cover-heading">{{ heading }}</h1>
-<p class="lead">Spela</p>
+<div class="text-center">
+	<audio controls autoplay>
+		<source src="static/horse.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<br><br>
+	<a href id="repeat" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-repeat"></span></a>
+</div>
+
+<form class="play-form" role="form">
+	<div class="form-group" ng-repeat="g in genres">
+		<label for="{{ g.key }}">{{ g.name }}: {{ g.value }} %</label>
+		<input type="range" name="{{ g.key }}" min="0" max="100" step="1" ng-model="g.value">
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="btn btn-lg btn-primary pull-right">
+			Nästa
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</button>
+	</div>
+</form>

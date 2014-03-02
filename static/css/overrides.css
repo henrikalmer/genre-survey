@@ -1,0 +1,12 @@
+body {
+  padding: 30px;
+}
+
+.play-form {
+  overflow: hidden;
+}
+
+.mastfoot {
+  clear: both;
+  margin-top: 30px;
+}
