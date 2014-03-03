@@ -1,6 +1,7 @@
 var playerApp = angular.module('playerApp', [
     'ngRoute',
-    'playerControllers'
+    'playerControllers',
+    'playerServices'
 ]);
 
 playerApp.config(['$routeProvider',
@@ -9,6 +10,10 @@ playerApp.config(['$routeProvider',
             when('/', {
                 templateUrl: 'static/partials/intro.html',
                 controller: 'IntroCtrl'
+            }).
+            when('/thanks/', {
+                templateUrl: 'static/partials/thanks.html',
+                controller: 'ThanksCtrl'
             }).
             when('/play/', {
                 templateUrl: 'static/partials/play.html',
