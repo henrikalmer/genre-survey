@@ -14,7 +14,6 @@ playerServices.service('MusicService', function () {
             {'name': 'Jazz', 'key': 'jazz', 'value': 0},
             {'name': 'Klassiskt', 'key': 'classical', 'value': 0},
         ];
-
         return genres;
     };
 
@@ -23,16 +22,17 @@ playerServices.service('MusicService', function () {
             {'artist': 'Katy Perry', 'title': 'Roar', 'name': 'Mix 1', 'src': 'static/mp3/mix.mp3'},
             {'artist': 'Katy Perry', 'title': 'Roar', 'name': 'Drums 1', 'src': 'static/mp3/drums.mp3'}
         ]
-
         return shuffle(tracks);
     };
 });
 
 playerServices.service('SessionService', function () {
     this.data = {'respondent': '', 'tracks': []};
+
     this.set_name = function (name) {
         this.data['respondent'] = name;
     };
+
     this.add_track = function (track, genre_classification) {
         this.data['tracks'].push({
             'track': track,

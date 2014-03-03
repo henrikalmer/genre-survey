@@ -27,10 +27,8 @@ playerControllers.controller('PlayerCtrl', function ($scope, $location, SessionS
 
     $scope.next = function () {
         $scope.update_session();
-
         // reset genre values
         $scope.genres = MusicService.get_genres();
-
         // forward song pointer and play new song
         $scope.currentTrack = $scope.tracks[++$scope.track_index];
         var audio = document.getElementById('player');
@@ -42,6 +40,6 @@ playerControllers.controller('PlayerCtrl', function ($scope, $location, SessionS
 
     $scope.finish = function () {
         $scope.update_session();
-        $scope.$apply(function () { $location.path('/thanks/'); });
+        $location.path('/thanks/');
     };
 });
