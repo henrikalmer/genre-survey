@@ -2,10 +2,10 @@
 <p class="lead" ng-bind-html="lead"></p>
 <p ng-bind-html="body"></p>
 <p class="lead">
-    <form role="form">
+    <form role="form" ng-submit="start()">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="{{ label }}" ng-model="respondent" />
         </div>
+        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="!respondent">{{ btn_text }}</button>
     </form>
-    <a href class="btn btn-lg btn-primary" ng-disabled="!respondent" ng-click="start()">{{ btn_text }}</a>
 </p>

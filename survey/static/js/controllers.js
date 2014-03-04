@@ -9,7 +9,6 @@ playerControllers.controller('IntroCtrl', function ($scope, $location, $sce, Ses
     $scope.respondent = '';
 
     $scope.start = function () {
-        // TODO: enable Enter button in name form
         SessionService.set_name($scope.respondent);
         $location.path('/play/');
     }
