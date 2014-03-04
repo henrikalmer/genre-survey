@@ -44,3 +44,9 @@ playerServices.service('SessionService', function ($http) {
         $http.post('/api/v1/survey', {"json": JSON.stringify(this.data)});
     };
 });
+
+playerServices.service('ResultService', function ($http) {
+    this.getResults = function () {
+        return $http.get('/api/v1/survey');
+    }
+});

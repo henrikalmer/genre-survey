@@ -64,3 +64,11 @@ playerControllers.controller('PlayerCtrl',
             $location.path('/thanks/');
         };
 });
+
+playerControllers.controller('ResultsCtrl',
+    function ($scope, ResultService) {
+        $scope.results = [];
+        ResultService.getResults().then(function (response) {
+            $scope.results = response.data;
+        });
+});

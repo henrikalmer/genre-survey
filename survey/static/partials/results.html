@@ -1,0 +1,27 @@
+<h1 class="cover-heading">Inkommet</h1>
+
+<div ng-repeat="r in results">
+    <h4>{{ r.respondent }}</h4>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Spår</th>
+                <th>Pop</th>
+                <th>Rock</th>
+                <th>Reggae</th>
+                <th>Jazz</th>
+                <th>Klassiskt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="t in r.tracks">
+                <td>{{ t.track }}</td>
+                <td>{{ t.genre_classification.0 }}</td>
+                <td>{{ t.genre_classification.1 }}</td>
+                <td>{{ t.genre_classification.2 }}</td>
+                <td>{{ t.genre_classification.3 }}</td>
+                <td>{{ t.genre_classification.4 }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

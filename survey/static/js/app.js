@@ -19,6 +19,10 @@ playerApp.config(['$routeProvider',
                 templateUrl: 'static/partials/play.html',
                 controller: 'PlayerCtrl'
             }).
+            when('/results/', {
+                templateUrl: 'static/partials/results.html',
+                controller: 'ResultsCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });

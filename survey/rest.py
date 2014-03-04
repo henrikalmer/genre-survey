@@ -9,7 +9,7 @@ parser.add_argument('json')
 class Survey(Resource):
     def get(self):
         responses = [json.loads(r.json) for r in Response.query.all()]
-        return json.dumps(responses), 200
+        return responses, 200
 
     def post(self):
         # read
