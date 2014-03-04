@@ -1,9 +1,16 @@
 var playerControllers = angular.module('playerControllers', []);
 
-playerControllers.controller('IntroCtrl', function ($scope) {
+playerControllers.controller('IntroCtrl', function ($scope, $location, SessionService) {
     $scope.heading = 'Välkommen!';
     $scope.intro = 'Lorem ipsum yada yada';
     $scope.btn_text = 'Start';
+    $scope.label = 'Ditt namn';
+    $scope.respondent = '';
+
+    $scope.start = function () {
+        SessionService.set_name($scope.respondent);
+        $location.path('/play/');
+    }
 });
 
 playerControllers.controller('ThanksCtrl', function ($scope) {

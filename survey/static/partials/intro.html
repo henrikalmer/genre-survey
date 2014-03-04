@@ -1,5 +1,10 @@
 <h1 class="cover-heading">{{ heading }}</h1>
 <p class="lead">{{ intro }}</p>
 <p class="lead">
-    <a href="/#/play/" class="btn btn-lg btn-primary">{{ btn_text }}</a>
+    <form role="form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{ label }}" ng-model="respondent" />
+        </div>
+    </form>
+    <a href class="btn btn-lg btn-primary" ng-disabled="!respondent" ng-click="start()">{{ btn_text }}</a>
 </p>
