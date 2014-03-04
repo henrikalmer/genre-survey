@@ -1,11 +1,10 @@
-import json
-
+from flask import json
 from flask.ext.restful import reqparse, Resource
 from survey import api, db
 from survey.models import Response
 
 parser = reqparse.RequestParser()
-parser.add_argument('json', type=str, help="JSON data to store as a survey response")
+parser.add_argument('json')
 
 class Survey(Resource):
     def get(self):
