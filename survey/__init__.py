@@ -16,4 +16,4 @@ heroku = Heroku(app)
 db = SQLAlchemy(app)
 api = Api(app)
 
-from survey import api, views, models
+from survey import rest, views, models
