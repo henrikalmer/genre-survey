@@ -26,7 +26,7 @@ playerServices.service('MusicService', function () {
     };
 });
 
-playerServices.service('SessionService', function () {
+playerServices.service('SessionService', function ($http) {
     this.data = {'respondent': '', 'tracks': []};
 
     this.set_name = function (name) {
@@ -39,4 +39,8 @@ playerServices.service('SessionService', function () {
             'genre_classification': genre_classification}
         );
     }
+
+    this.save = function () {
+        $http.post('/api/v1/survey', {"json": JSON.stringify(this.data)});
+    };
 });

@@ -22,7 +22,8 @@ playerControllers.controller('PlayerCtrl', function ($scope, $location, SessionS
     };
 
     $scope.update_session = function () {
-        SessionService.add_track($scope.currentTrack, $scope.genres);
+        genre_classification = $scope.genres.map(function (x) { return x.value; });
+        SessionService.add_track($scope.currentTrack.src, genre_classification);
     };
 
     $scope.next = function () {
@@ -40,6 +41,7 @@ playerControllers.controller('PlayerCtrl', function ($scope, $location, SessionS
 
     $scope.finish = function () {
         $scope.update_session();
+        SessionService.save();
         $location.path('/thanks/');
     };
 });
