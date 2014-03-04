@@ -6,7 +6,7 @@ function shuffle (o) {
 };
 
 playerServices.service('MusicService', function () {
-    this.get_genres = function () {
+    this.getGenres = function () {
         var genres = [
             {'name': 'Pop', 'key': 'pop', 'value': 0},
             {'name': 'Rock', 'key': 'rock', 'value': 0},
@@ -17,7 +17,7 @@ playerServices.service('MusicService', function () {
         return genres;
     };
 
-    this.get_tracks = function () {
+    this.getTracks = function () {
         var tracks = [
             {'artist': 'Katy Perry', 'title': 'Roar', 'name': 'Mix 1', 'src': 'static/mp3/mix.mp3'},
             {'artist': 'Katy Perry', 'title': 'Roar', 'name': 'Drums 1', 'src': 'static/mp3/drums.mp3'}
@@ -29,14 +29,14 @@ playerServices.service('MusicService', function () {
 playerServices.service('SessionService', function ($http) {
     this.data = {'respondent': '', 'tracks': []};
 
-    this.set_name = function (name) {
+    this.setName = function (name) {
         this.data['respondent'] = name;
     };
 
-    this.add_track = function (track, genre_classification) {
+    this.addTrack = function (track, genreClassification) {
         this.data['tracks'].push({
             'track': track,
-            'genre_classification': genre_classification}
+            'genre_classification': genreClassification}
         );
     }
 

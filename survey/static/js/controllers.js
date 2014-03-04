@@ -5,7 +5,7 @@ playerControllers.controller('IntroCtrl',
         $scope.heading = 'Välkommen!';
         $scope.lead = $sce.trustAsHtml('Hjälp mig att utreda om trumljud är tillräckligt för att avgöra vilken genre en låt har.');
         $scope.body = $sce.trustAsHtml('Du kommer få lyssna på ett antal väldigt korta musikspår. Spåren är en blandning av hela låtar och trumljuden från samma låtar. Din uppgift är att ange vilken eller vilka genrer du tycker att låten har.<br><br>Det är fullt tillåtet att säga att en låt tillhör fler än en genre.');
-        $scope.btn_text = 'Start';
+        $scope.btnText = 'Start';
         $scope.label = 'Ditt namn';
         $scope.respondent = '';
 
@@ -14,7 +14,7 @@ playerControllers.controller('IntroCtrl',
         }
 
         $scope.start = function () {
-            SessionService.set_name($scope.respondent);
+            SessionService.setName($scope.respondent);
             $location.path('/play/');
         }
 });
@@ -26,30 +26,30 @@ playerControllers.controller('ThanksCtrl', function ($scope) {
 
 playerControllers.controller('PlayerCtrl',
     function ($scope, $location, $cookies, SessionService, MusicService) {
-        $scope.genres = MusicService.get_genres();
-        $scope.tracks = MusicService.get_tracks();
-        $scope.track_index = 0;
-        $scope.currentTrack = $scope.tracks[$scope.track_index];
+        $scope.genres = MusicService.getGenres();
+        $scope.tracks = MusicService.getTracks();
+        $scope.trackIndex = 0;
+        $scope.currentTrack = $scope.tracks[$scope.trackIndex];
 
         if ($cookies.status == 'already_responded') {
             $location.path('/thanks/');
         }
 
-        $scope.has_next = function () {
-            return $scope.track_index < $scope.tracks.length - 1;
+        $scope.hasNext = function () {
+            return $scope.trackIndex < $scope.tracks.length - 1;
         };
 
-        $scope.update_session = function () {
-            var genre_classification = $scope.genres.map(function (x) { return x.value; });
-            SessionService.add_track($scope.currentTrack.src, genre_classification);
+        $scope.updateSession = function () {
+            var genreClassification = $scope.genres.map(function (x) { return x.value; });
+            SessionService.addTrack($scope.currentTrack.src, genreClassification);
         };
 
         $scope.next = function () {
-            $scope.update_session();
+            $scope.updateSession();
             // reset genre values
-            $scope.genres = MusicService.get_genres();
+            $scope.genres = MusicService.getGenres();
             // forward song pointer and play new song
-            $scope.currentTrack = $scope.tracks[++$scope.track_index];
+            $scope.currentTrack = $scope.tracks[++$scope.trackIndex];
             var audio = document.getElementById('player');
             var source = document.getElementById('song');
             source.src = $scope.currentTrack.src;
@@ -58,7 +58,7 @@ playerControllers.controller('PlayerCtrl',
         };
 
         $scope.finish = function () {
-            $scope.update_session();
+            $scope.updateSession();
             SessionService.save();
             $cookies.status = 'already_responded';
             $location.path('/thanks/');
