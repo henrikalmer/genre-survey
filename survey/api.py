@@ -1,14 +1,5 @@
-import os
-
-from flask import Flask, render_template
-from flask.ext.restful import reqparse, Resource, Api
-
-app = Flask(__name__)
-api = Api(app)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
+from flask.ext.restful import reqparse, Resource
+from survey import api
 
 parser = reqparse.RequestParser()
 parser.add_argument('json', type=str)

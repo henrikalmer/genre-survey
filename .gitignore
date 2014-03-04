@@ -35,7 +35,10 @@ nosetests.xml
 .pydevproject
 
 # Virtualenv
+env
 
 # OS X
 .DS_Store
-env
+
+# Project
+local_config.py
