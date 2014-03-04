@@ -9,6 +9,7 @@ playerControllers.controller('IntroCtrl', function ($scope, $location, $sce, Ses
     $scope.respondent = '';
 
     $scope.start = function () {
+        // TODO: enable Enter button in name form
         SessionService.set_name($scope.respondent);
         $location.path('/play/');
     }
@@ -50,6 +51,7 @@ playerControllers.controller('PlayerCtrl', function ($scope, $location, SessionS
     $scope.finish = function () {
         $scope.update_session();
         SessionService.save();
+        // TODO: Disable user from taking the survey twice (cookie?)
         $location.path('/thanks/');
     };
 });
