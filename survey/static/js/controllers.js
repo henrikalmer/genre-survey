@@ -1,8 +1,9 @@
 var playerControllers = angular.module('playerControllers', []);
 
-playerControllers.controller('IntroCtrl', function ($scope, $location, SessionService) {
+playerControllers.controller('IntroCtrl', function ($scope, $location, $sce, SessionService) {
     $scope.heading = 'Välkommen!';
-    $scope.intro = 'Lorem ipsum yada yada';
+    $scope.lead = $sce.trustAsHtml('Hjälp mig att utreda om trumljud är tillräckligt för att avgöra vilken genre en låt har.');
+    $scope.body = $sce.trustAsHtml('Du kommer få lyssna på ett antal väldigt korta musikspår. Spåren är en blandning av hela låtar och trumljuden från samma låtar. Din uppgift är att ange vilken eller vilka genrer du tycker att låten har.<br><br>Det är fullt tillåtet att säga att en låt tillhör fler än en genre.');
     $scope.btn_text = 'Start';
     $scope.label = 'Ditt namn';
     $scope.respondent = '';
@@ -15,7 +16,7 @@ playerControllers.controller('IntroCtrl', function ($scope, $location, SessionSe
 
 playerControllers.controller('ThanksCtrl', function ($scope) {
     $scope.heading = 'Tack!';
-    $scope.thanks = 'Lorem ipsum yada yada';
+    $scope.thanks = 'Nu är du klar. Tack för att du hjälpte till.';
 });
 
 playerControllers.controller('PlayerCtrl', function ($scope, $location, SessionService, MusicService) {
