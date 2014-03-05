@@ -41,7 +41,7 @@ playerControllers.controller('PlayerCtrl',
 
         $scope.updateSession = function () {
             var genreClassification = $scope.genres.map(function (x) { return x.value; });
-            SessionService.addTrack($scope.currentTrack.src, genreClassification);
+            SessionService.addTrack($scope.currentTrack, genreClassification);
         };
 
         $scope.next = function () {
@@ -52,7 +52,7 @@ playerControllers.controller('PlayerCtrl',
             $scope.currentTrack = $scope.tracks[++$scope.trackIndex];
             var audio = document.getElementById('player');
             var source = document.getElementById('song');
-            source.src = $scope.currentTrack.src;
+            source.src = $scope.currentTrack;
             audio.load();
             audio.play();
         };
