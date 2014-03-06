@@ -1,4 +1,4 @@
-var playerControllers = angular.module('playerControllers', ['ngCookies']);
+var playerControllers = angular.module('playerControllers', ['ngCookies', 'ui.bootstrap']);
 
 playerControllers.controller('IntroCtrl',
     function ($scope, $location, $cookies, $sce, SessionService) {
